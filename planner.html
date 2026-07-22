@@ -3,48 +3,115 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Planner Semanal Grátis - Casa Leve</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F5F1EB;--white:#FFF;--black:#1A1A1A;--sage:#A8B5A2;--sage-dark:#8A9A84;--border:#E9E2D6}
+:root{--bg:#F5F1EB;--white:#FFFFFF;--black:#1A1A1A;--sage:#A8B5A2;--sage-dark:#8A9A84;--sage-light:#EEF4EC;--border:#E9E2D6}
+*{box-sizing:border-box}
 body{background:var(--bg);color:var(--black);font-family:'Inter',sans-serif;margin:0}
-.container{max-width:480px;margin:0 auto;padding:28px 20px}
-.back{display:inline-flex;text-decoration:none;color:var(--black);font-size:13px;margin-bottom:18px;opacity:0.7}
-.card{background:var(--white);border-radius:24px;padding:24px;border:1px solid var(--border);text-align:center}
-h1{font-family:'Playfair Display';font-size:26px;line-height:1.2;margin:12px 0}
-.sub{font-size:14.5px;line-height:1.6;opacity:0.7;margin-bottom:18px}
-input{width:100%;padding:16px 18px;border-radius:100px;border:1.5px solid var(--border);font-size:15px;margin-bottom:10px;box-sizing:border-box;outline:none}
+.container{max-width:480px;margin:0 auto;padding:24px 20px 40px}
+
+.back{display:inline-flex;text-decoration:none;color:var(--black);font-size:13px;margin-bottom:18px;opacity:0.65}
+.back:hover{opacity:0.9}
+
+.hero-preview{position:relative;border-radius:22px;overflow:hidden;margin-bottom:16px;border:1px solid var(--border)}
+.hero-preview img{width:100%;height:180px;object-fit:cover;display:block}
+.hero-preview .tag{position:absolute;top:12px;left:12px;background:rgba(26,26,26,0.85);color:#fff;font-size:11px;font-weight:700;padding:6px 12px;border-radius:100px;backdrop-filter:blur(4px)}
+
+.card{background:var(--white);border-radius:24px;padding:26px 24px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.04);text-align:center}
+
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--sage-light);color:var(--sage-dark);padding:6px 13px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.02em;margin-bottom:10px}
+.logo{width:130px;margin:0 auto 12px;display:block}
+
+h1{font-family:'Playfair Display';font-weight:700;font-size:26px;line-height:1.22;margin:0 0 10px}
+.sub{font-size:14.5px;line-height:1.6;opacity:0.72;margin-bottom:20px}
+
+.social-proof{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px;font-size:12.5px;opacity:0.65}
+.social-proof .avatars{display:flex}
+.social-proof .avatars img{width:24px;height:24px;border-radius:50%;object-fit:cover;border:2px solid var(--white);margin-left:-8px}
+.social-proof .avatars img:first-child{margin-left:0}
+
+input{width:100%;padding:16px 18px;border-radius:100px;border:1.5px solid var(--border);font-size:15px;margin-bottom:10px;outline:none;font-family:'Inter',sans-serif;background:var(--white)}
 input:focus{border-color:var(--sage-dark)}
-.btn{width:100%;background:var(--black);color:white;border:none;padding:18px;border-radius:100px;font-weight:600;font-size:16px;cursor:pointer}
-.small{font-size:11px;opacity:0.5;margin-top:12px;line-height:1.4}
-.logo{width:140px;margin:0 auto 10px;display:block}
-.badge{display:inline-flex;background:#EEF4EC;color:var(--sage-dark);padding:6px 12px;border-radius:100px;font-size:11px;font-weight:700;margin-bottom:8px}
+.btn{width:100%;background:var(--black);color:white;border:none;padding:18px;border-radius:100px;font-weight:600;font-size:16px;cursor:pointer;transition:opacity 0.15s ease}
+.btn:hover{opacity:0.9}
+
+.small{font-size:11px;opacity:0.5;margin-top:14px;line-height:1.5}
+.small a{color:var(--sage-dark);font-weight:600}
+
+.divider-line{height:1px;background:var(--border);margin:22px 0}
+
+.included{text-align:left}
+.included .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--sage-dark);margin-bottom:12px}
+.included ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.included li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.5;opacity:0.85}
+.included li .check{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--sage);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+
+.quote{background:var(--sage);border-radius:20px;padding:18px 20px;margin-top:22px;color:#2A3328;text-align:left}
+.quote p{font-family:'Playfair Display';font-size:14.5px;font-style:italic;line-height:1.5}
+.quote span{display:block;margin-top:8px;font-size:11.5px;font-weight:600;opacity:0.8}
+
+.trust-row{display:flex;justify-content:center;gap:18px;margin-top:18px;font-size:11px;opacity:0.55}
+.trust-row span{display:flex;align-items:center;gap:4px}
 </style>
 </head>
 <body>
 <div class="container">
 <a class="back" href="index.html">← Voltar</a>
-<div class="card">
-<div class="badge">🎁 PRESENTE GRÁTIS</div>
-<img class="logo" src="logo-cl-final.png" alt="Casa Leve">
-<h1>Baixe seu Planner Semanal</h1>
-<p class="sub">Coloque seu melhor e-mail abaixo que eu te envio o PDF + 3 dicas bônus pra manter a casa leve a semana toda.</p>
 
-<!-- FORMULARIO QUE CAPTURA EMAIL E ENTREGA O PDF -->
-<!-- TROQUE SEU EMAIL ABAIXO em _replyto e no value de _next se quiser -->
-<form action="https://formsubmit.co/cwc.camargo@GMAIL.COM" method="POST">
-  <input type="email" name="email" placeholder="Seu melhor e-mail" required>
-  <input type="hidden" name="_next" value="https://casaleve-oficial.vercel.app/planner-semanal-casa-leve.pdf">
-  <input type="hidden" name="_subject" value="Nova lead - Planner Casa Leve">
-  <input type="hidden" name="_captcha" value="false">
-  <button type="submit" class="btn">Quero meu Planner Grátis →</button>
-</form>
-
-<p class="small">Ao continuar você concorda em receber conteúdos de organização. Sem spam, pode sair quando quiser.<br><br>📄 O download começa automaticamente após confirmar o e-mail.<br>Se não baixar, <a href="planner-semanal-casa-leve.pdf" target="_blank">clique aqui</a>.</p>
-
-<div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);text-align:left">
-<p style="font-size:13px;font-weight:600">O que vem no Planner:</p>
-<p style="font-size:13px;opacity:0.7;line-height:1.6">✓ 7 dias em 1 folha A4<br>✓ Espaço para 3 prioridades por dia<br>✓ Checklist rápido de casa leve<br>✓ Rodapé motivacional pra não abandonar</p>
+<div class="hero-preview">
+  <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?q=80&w=800&auto=format&fit=crop" alt="Planner semanal Casa Leve">
+  <div class="tag">📄 Prévia do Planner</div>
 </div>
+
+<div class="card">
+  <div class="badge">🎁 PRESENTE GRÁTIS</div>
+  <img class="logo" src="logo-cl-final.png" alt="Casa Leve">
+
+  <h1>Baixe seu Planner Semanal</h1>
+  <p class="sub">Coloque seu melhor e-mail abaixo e garanta acesso imediato ao PDF — a página já abre o download assim que você confirmar.</p>
+
+  <div class="social-proof">
+    <div class="avatars">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" alt="">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=100&auto=format&fit=crop" alt="">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=100&auto=format&fit=crop" alt="">
+    </div>
+    <span>+2.400 leitoras já baixaram</span>
+  </div>
+
+  <!-- FORMULARIO QUE CAPTURA EMAIL E ENTREGA O PDF -->
+  <!-- TROQUE SEU EMAIL ABAIXO em _replyto e no value de _next se quiser -->
+  <form action="https://formsubmit.co/cwc.camargo@GMAIL.COM" method="POST">
+    <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+    <input type="hidden" name="_next" value="https://casaleve-oficial.vercel.app/planner-semanal-casa-leve.pdf">
+    <input type="hidden" name="_subject" value="Nova lead - Planner Casa Leve">
+    <input type="hidden" name="_captcha" value="false">
+    <button type="submit" class="btn">Quero meu Planner Grátis →</button>
+  </form>
+
+  <p class="small">Ao continuar você concorda em receber conteúdos de organização por e-mail. Sem spam, pode sair quando quiser.<br><br>Se o download não abrir sozinho, <a href="planner-semanal-casa-leve.pdf" target="_blank">clique aqui</a>.</p>
+
+  <div class="trust-row">
+    <span>🔒 Dados protegidos</span>
+    <span>✉️ Sem spam</span>
+  </div>
+
+  <div class="divider-line"></div>
+
+  <div class="included">
+    <div class="label">O que vem no planner</div>
+    <ul>
+      <li><span class="check">✓</span> 7 dias organizados em 1 folha A4, pronta pra imprimir</li>
+      <li><span class="check">✓</span> Espaço para as 3 prioridades reais de cada dia — sem lista infinita</li>
+      <li><span class="check">✓</span> Checklist rápido de "casa leve" pra revisar antes de dormir</li>
+      <li><span class="check">✓</span> Rodapé motivacional pra não abandonar na segunda semana</li>
+    </ul>
+  </div>
+
+  <div class="quote">
+    <p>"Imprimi e colei na porta da geladeira. É o único planner que eu realmente uso até hoje."</p>
+    <span>— Renata S., leitora Casa Leve</span>
+  </div>
 </div>
 </div>
 </body>
