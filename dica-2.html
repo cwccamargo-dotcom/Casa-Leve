@@ -1,19 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 Hábitos de Casa Cheirosa - Casa Leve</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F1EB;--white:#FFFFFF;--black:#1A1A1A;--sage:#A8B5A2;--sage-dark:#8A9A84;--sage-light:#EEF1EA;--border:#E9E2D6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--black);font-family:'Inter',sans-serif}
+.container{max-width:640px;margin:0 auto;padding:24px 20px 40px}
 
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Casa Cheirosa - Casa Leve</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>body{background:#F5F1EB;font-family:'Inter',sans-serif;color:#1A1A1A;max-width:680px;margin:0 auto;padding:28px 20px}h1{font-family:'Playfair Display';font-size:28px;line-height:1.2}p{margin:14px 0;line-height:1.7;opacity:0.85}a.btn{display:block;background:#1A1A1A;color:white;text-align:center;padding:18px;border-radius:100px;text-decoration:none;font-weight:600;margin-top:24px}.card{background:white;border-radius:20px;padding:20px;margin:18px 0;border:1px solid #E9E2D6}ul{padding-left:18px}li{margin:8px 0;line-height:1.5}a.back{text-decoration:none;font-size:13px;opacity:0.6}</style>
-</head><body>
-<a class="back" href="index.html">← Voltar para Casa Leve</a>
-<h1 style="margin-top:16px">7 hábitos que deixam sua casa com cheiro de hotel sem gastar muito</h1>
-<img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800&auto=format&fit=crop" style="width:100%;height:280px;object-fit:cover;border-radius:20px;margin:18px 0">
-<p>Não é sobre aromatizador caro. É sobre rotina.</p>
-<div class="card"><ul>
-<li><b>1. Pano com vinagre no ralo</b> toda noite</li>
-<li><b>2. Bicarbonato no tapete</b> 10 min antes de aspirar</li>
-<li><b>3. Casca de laranja + canela</b> fervida 5 min</li>
-<li><b>4. Toalhas sempre secas</b> - umidade é o vilão</li>
-<li><b>5. Lixo com 2 saquinhos</b> e gota de essência</li>
-</ul></div>
-<p>Quando você junta esses detalhes com uma rotina organizada, a casa muda. No Método Rainha da Casa você preenche um formulário rápido e recebe a rotina exata.</p>
-<a class="btn" href="https://pay.kiwify.com.br/SEU-LINK-AQUI?afid=iUasA422" target="_blank">Responder formulário rápido →</a>
-</body></html>
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+a.back{text-decoration:none;font-size:13px;opacity:0.6;color:var(--black);display:flex;align-items:center;gap:4px}
+a.back:hover{opacity:0.9}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--border);padding:5px 11px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--sage-dark)}
+
+h1{font-family:'Playfair Display';font-weight:700;font-size:30px;line-height:1.22;margin-top:14px}
+.dek{font-size:15px;line-height:1.65;opacity:0.72;margin-top:12px}
+
+.cover{width:100%;height:260px;object-fit:cover;border-radius:20px;margin:22px 0}
+
+p.body-text{margin:16px 0;line-height:1.75;font-size:15.5px;opacity:0.85}
+strong{font-weight:600;color:var(--black)}
+
+.divider{height:1px;background:var(--border);margin:32px 0}
+
+.section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--sage-dark);margin-bottom:8px}
+.section-title{font-family:'Playfair Display';font-size:22px;font-weight:600;margin-bottom:16px}
+
+.habits{display:flex;flex-direction:column;gap:12px;margin:18px 0}
+.habit{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:18px 20px;display:flex;gap:16px;align-items:flex-start}
+.habit-num{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--sage-light);color:var(--sage-dark);font-family:'Playfair Display';font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.habit-body h4{font-size:15px;font-weight:600;margin-bottom:4px}
+.habit-body p{font-size:13.5px;opacity:0.68;line-height:1.55}
+.habit-body .when{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;color:var(--sage-dark);background:var(--sage-light);padding:3px 9px;border-radius:100px}
+
+.myth{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:22px;margin:20px 0}
+.myth h3{font-family:'Playfair Display';font-size:18px;margin-bottom:8px}
+.myth p{font-size:14.5px;opacity:0.8;line-height:1.65}
+
+.quote{background:var(--sage);border-radius:22px;padding:24px 26px;margin:28px 0;color:#2A3328}
+.quote p{font-family:'Playfair Display';font-size:17px;font-style:italic;line-height:1.45}
+.quote span{display:block;margin-top:10px;font-size:12px;font-weight:600;opacity:0.8}
+
+.cta-block{background:var(--white);border:1px solid var(--border);border-radius:24px;padding:26px;margin-top:32px;text-align:center}
+.cta-block h3{font-family:'Playfair Display';font-size:20px;margin-bottom:8px}
+.cta-block p{font-size:14px;opacity:0.7;line-height:1.55;margin-bottom:20px}
+a.btn{display:block;background:var(--black);color:white;text-align:center;padding:18px;border-radius:100px;text-decoration:none;font-weight:600;font-size:16px}
+a.btn small{display:block;font-weight:400;font-size:12px;opacity:0.75;margin-top:4px}
+.btn-sub{text-align:center;font-size:12px;opacity:0.55;margin-top:12px}
+
+.footer{text-align:center;margin-top:36px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;opacity:0.5}
+
+.sticky{display:none}
+@media (max-width:600px){
+  .container{padding-bottom:100px}
+  .sticky{
+    display:block;position:fixed;bottom:0;left:0;right:0;
+    background:rgba(245,241,235,0.92);backdrop-filter:blur(12px);
+    padding:14px 20px;border-top:1px solid var(--border);
+    transform:translateY(120%);opacity:0;pointer-events:none;
+    transition:transform 0.35s ease, opacity 0.35s ease;
+  }
+  .sticky.is-visible{transform:translateY(0);opacity:1;pointer-events:auto}
+}
+.sticky-inner{max-width:640px;margin:0 auto}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Casa Leve</a>
+    <div class="eyebrow">Hábitos</div>
+  </div>
+
+  <h1>7 hábitos que deixam sua casa com cheiro de hotel sem gastar muito</h1>
+  <p class="dek">Não é sobre comprar aromatizador caro. É sobre 7 detalhes pequenos, repetidos todos os dias, que impedem o cheiro ruim de aparecer.</p>
+
+  <img class="cover" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800&auto=format&fit=crop" alt="Ambiente claro e aconchegante">
+
+  <p class="body-text">Cheiro de hotel não vem de um produto específico — vem da <strong>ausência</strong> de cheiro ruim. Ralo, tapete, lixo e umidade são as quatro fontes mais comuns de odor em qualquer casa, e todas têm solução simples, sem gasto extra.</p>
+
+  <div class="divider"></div>
+
+  <div class="section-label">O essencial</div>
+  <div class="section-title">Os 7 hábitos</div>
+
+  <div class="habits">
+    <div class="habit">
+      <div class="habit-num">1</div>
+      <div class="habit-body">
+        <h4>Pano com vinagre no ralo</h4>
+        <p>O ralo é a principal fonte de mau cheiro na cozinha e no banheiro. Passar um pano com vinagre evita o acúmulo de resíduos que gera odor.</p>
+        <span class="when">Toda noite</span>
+      </div>
+    </div>
+
+    <div class="habit">
+      <div class="habit-num">2</div>
+      <div class="habit-body">
+        <h4>Bicarbonato no tapete</h4>
+        <p>Polvilhe e deixe agir antes de aspirar. O bicarbonato absorve odor e umidade retida nas fibras — o motivo mais comum de tapete com cheiro parado.</p>
+        <span class="when">10 min antes de aspirar</span>
+      </div>
+    </div>
+
+    <div class="habit">
+      <div class="habit-num">3</div>
+      <div class="habit-body">
+        <h4>Casca de laranja + canela fervidas</h4>
+        <p>Cinco minutos no fogo perfumam a casa inteira de forma natural, sem mascarar outros odores como os aromatizadores costumam fazer.</p>
+        <span class="when">5 min, fogo baixo</span>
+      </div>
+    </div>
+
+    <div class="habit">
+      <div class="habit-num">4</div>
+      <div class="habit-body">
+        <h4>Toalhas sempre secas</h4>
+        <p>Umidade é o vilão número um do cheiro de mofo. Toalhas úmidas e amontoadas são a causa mais comum — estenda sempre, nunca amasse.</p>
+        <span class="when">Regra fixa</span>
+      </div>
+    </div>
+
+    <div class="habit">
+      <div class="habit-num">5</div>
+      <div class="habit-body">
+        <h4>Lixo com 2 saquinhos + gota de essência</h4>
+        <p>O saco duplo evita vazamento de líquido no fundo da lixeira, que é onde o cheiro realmente se instala — não no lixo em si.</p>
+        <span class="when">A cada troca</span>
+      </div>
+    </div>
+
+    <div class="habit">
+      <div class="habit-num">6</div>
+      <div class="habit-body">
+        <h4>Ventilar a casa 10 minutos</h4>
+        <p>Abrir janelas opostas cria corrente de ar e renova o ambiente por completo — nenhum aromatizador substitui ar de verdade circulando.</p>
+        <span class="when">Pela manhã</span>
+      </div>
+    </div>
+
+    <div class="habit">
+      <div class="habit-num">7</div>
+      <div class="habit-body">
+        <h4>Trocar pano de prato e de chão</h4>
+        <p>Panos úmidos reutilizados por dias são um dos maiores focos de odor da cozinha, mesmo em casas limpas.</p>
+        <span class="when">A cada 2 dias</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="myth">
+    <h3>Por que aromatizador caro não resolve sozinho</h3>
+    <p>Aromatizador cobre cheiro por cima, mas não elimina a fonte. Se o ralo, o tapete ou o pano de prato continuam gerando odor, o aromatizador só disfarça por algumas horas — e o gasto se repete todo mês sem o problema ser resolvido de fato. Os 7 hábitos acima atacam a origem, não o sintoma.</p>
+  </div>
+
+  <p class="body-text">Esses hábitos funcionam melhor quando encaixados numa rotina que já existe — não como tarefas extras soltas no dia. É exatamente essa a lógica do <strong>Método Rainha da Casa</strong>: entender sua rotina real antes de sugerir o que fazer e quando.</p>
+
+  <div class="quote">
+    <p>"Comecei só pelo hábito do ralo e do lixo. Duas semanas depois a casa inteira cheirava diferente."</p>
+    <span>— Camila R., leitora Casa Leve</span>
+  </div>
+
+  <div class="cta-block">
+    <h3>Veja seu plano personalizado</h3>
+    <p>Responda o formulário rápido e receba a rotina exata para a sua casa, no seu ritmo.</p>
+    <a class="btn" id="hero-cta" href="https://kiwify.app/mtnhgqL?afid=iUasA422" target="_blank">Responder formulário rápido →<small>menos de 1 minuto • acesso imediato</small></a>
+  </div>
+
+  <div class="footer">Casa Leve © 2026 — Organização real para vida real.</div>
+</div>
+
+<div class="sticky" id="sticky-cta">
+  <div class="sticky-inner">
+    <a class="btn" href="https://kiwify.app/mtnhgqL?afid=iUasA422" target="_blank">Responder formulário agora →<small>menos de 1 minuto</small></a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var heroCta = document.getElementById('hero-cta');
+  var sticky = document.getElementById('sticky-cta');
+  if(!heroCta || !sticky) return;
+  var mq = window.matchMedia('(max-width:600px)');
+
+  var observer = new IntersectionObserver(function(entries){
+    if(!mq.matches) return;
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        sticky.classList.remove('is-visible');
+      } else if(entry.boundingClientRect.top < 0){
+        sticky.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0 });
+
+  observer.observe(heroCta);
+
+  mq.addEventListener('change', function(){
+    if(!mq.matches){ sticky.classList.remove('is-visible'); }
+  });
+})();
+</script>
+</body>
+</html>
