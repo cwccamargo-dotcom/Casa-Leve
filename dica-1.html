@@ -1,13 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist de Limpeza Inteligente - Casa Leve</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F1EB;--white:#FFFFFF;--black:#1A1A1A;--sage:#A8B5A2;--sage-dark:#8A9A84;--sage-light:#EEF1EA;--border:#E9E2D6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--black);font-family:'Inter',sans-serif}
+.container{max-width:640px;margin:0 auto;padding:24px 20px 40px}
 
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Checklist Inteligente - Casa Leve</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>body{background:#F5F1EB;font-family:'Inter',sans-serif;color:#1A1A1A;max-width:680px;margin:0 auto;padding:28px 20px}h1{font-family:'Playfair Display';font-size:28px;line-height:1.2}p{margin:14px 0;line-height:1.7;opacity:0.85}a.btn{display:block;background:#1A1A1A;color:white;text-align:center;padding:18px;border-radius:100px;text-decoration:none;font-weight:600;margin-top:24px}.card{background:white;border-radius:20px;padding:20px;margin:18px 0;border:1px solid #E9E2D6}ul{padding-left:18px}li{margin:8px 0;line-height:1.5}a.back{text-decoration:none;font-size:13px;opacity:0.6}</style>
-</head><body>
-<a class="back" href="index.html">← Voltar para Casa Leve</a>
-<h1 style="margin-top:16px">Checklist de Limpeza Inteligente: como ter a casa em ordem sem passar o dia limpando</h1>
-<img src="https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?q=80&w=800&auto=format&fit=crop" style="width:100%;height:280px;object-fit:cover;border-radius:20px;margin:18px 0">
-<p>A maioria das pessoas tenta limpar a casa toda no sábado. Resultado: cansaço e a casa bagunça de novo na segunda.</p>
-<div class="card"><h3>Minha regra de 15 minutos</h3><ul><li><b>Manhã (5 min):</b> Cama arrumada + pia livre</li><li><b>Tarde (5 min):</b> Roupa no lugar + lixo fora</li><li><b>Noite (5 min):</b> Sala resetada para o dia seguinte</li></ul></div>
-<p>Essa lógica é a base do Método Rainha da Casa. Mas cada casa tem uma rotina diferente. Por isso o método começa com um formulário rápido que entende sua realidade.</p>
-<a class="btn" href="https://pay.kiwify.com.br/SEU-LINK-AQUI?afid=iUasA422" target="_blank">Quero responder rápido e ver meu plano →</a>
-</body></html>
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+a.back{text-decoration:none;font-size:13px;opacity:0.6;color:var(--black);display:flex;align-items:center;gap:4px}
+a.back:hover{opacity:0.9}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--border);padding:5px 11px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--sage-dark)}
+
+h1{font-family:'Playfair Display';font-weight:700;font-size:30px;line-height:1.22;margin-top:14px}
+.dek{font-size:15px;line-height:1.65;opacity:0.72;margin-top:12px}
+
+.cover{width:100%;height:260px;object-fit:cover;border-radius:20px;margin:22px 0}
+
+p.body-text{margin:16px 0;line-height:1.75;font-size:15.5px;opacity:0.85}
+strong{font-weight:600;color:var(--black)}
+
+.divider{height:1px;background:var(--border);margin:32px 0}
+
+.section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--sage-dark);margin-bottom:8px}
+.section-title{font-family:'Playfair Display';font-size:22px;font-weight:600;margin-bottom:16px}
+
+.rule-card{background:var(--white);border-radius:22px;padding:24px;margin:20px 0;border:1px solid var(--border)}
+.rule-card h3{font-family:'Playfair Display';font-size:19px;font-weight:600;margin-bottom:4px}
+.rule-card .rule-sub{font-size:13px;opacity:0.6;margin-bottom:18px}
+
+.slot{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--border)}
+.slot:first-of-type{border-top:none;padding-top:4px}
+.slot-time{flex-shrink:0;width:64px}
+.slot-time .min{font-family:'Playfair Display';font-size:22px;font-weight:700;line-height:1;color:var(--sage-dark)}
+.slot-time .label{font-size:10.5px;text-transform:uppercase;letter-spacing:0.04em;opacity:0.55;margin-top:3px}
+.slot-body h4{font-size:14.5px;font-weight:600;margin-bottom:3px}
+.slot-body p{font-size:13.5px;opacity:0.65;line-height:1.5}
+
+.pitfalls{display:grid;gap:10px;margin:18px 0}
+.pitfall{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.pitfall .x{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#F3E4E0;color:#B5573F;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pitfall p{font-size:14px;line-height:1.55;opacity:0.8}
+.pitfall b{color:var(--black);font-weight:600}
+
+.week-table{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin:18px 0}
+.week-row{display:flex;align-items:center;padding:13px 18px;border-top:1px solid var(--border)}
+.week-row:first-child{border-top:none}
+.week-day{width:88px;flex-shrink:0;font-size:13px;font-weight:700}
+.week-task{font-size:13.5px;opacity:0.75}
+
+.quote{background:var(--sage);border-radius:22px;padding:24px 26px;margin:28px 0;color:#2A3328}
+.quote p{font-family:'Playfair Display';font-size:17px;font-style:italic;line-height:1.45}
+.quote span{display:block;margin-top:10px;font-size:12px;font-weight:600;opacity:0.8}
+
+.cta-block{background:var(--white);border:1px solid var(--border);border-radius:24px;padding:26px;margin-top:32px;text-align:center}
+.cta-block h3{font-family:'Playfair Display';font-size:20px;margin-bottom:8px}
+.cta-block p{font-size:14px;opacity:0.7;line-height:1.55;margin-bottom:20px}
+a.btn{display:block;background:var(--black);color:white;text-align:center;padding:18px;border-radius:100px;text-decoration:none;font-weight:600;font-size:16px}
+a.btn small{display:block;font-weight:400;font-size:12px;opacity:0.75;margin-top:4px}
+.btn-sub{text-align:center;font-size:12px;opacity:0.55;margin-top:12px}
+
+.footer{text-align:center;margin-top:36px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;opacity:0.5}
+
+.sticky{display:none}
+@media (max-width:600px){
+  .container{padding-bottom:100px}
+  .sticky{
+    display:block;position:fixed;bottom:0;left:0;right:0;
+    background:rgba(245,241,235,0.92);backdrop-filter:blur(12px);
+    padding:14px 20px;border-top:1px solid var(--border);
+    transform:translateY(120%);opacity:0;pointer-events:none;
+    transition:transform 0.35s ease, opacity 0.35s ease;
+  }
+  .sticky.is-visible{transform:translateY(0);opacity:1;pointer-events:auto}
+}
+.sticky-inner{max-width:640px;margin:0 auto}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Casa Leve</a>
+    <div class="eyebrow">Checklist</div>
+  </div>
+
+  <h1>Checklist de Limpeza Inteligente: como manter a casa em ordem sem passar o dia limpando</h1>
+  <p class="dek">Um sistema de 15 minutos por dia, dividido em 3 blocos curtos, para você parar de sacrificar o sábado inteiro com faxina.</p>
+
+  <img class="cover" src="https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?q=80&w=800&auto=format&fit=crop" alt="Sala organizada e clara">
+
+  <p class="body-text">A maioria das pessoas tenta resolver a bagunça de uma vez só: um sábado inteiro de faxina pesada. O problema não é falta de esforço — é o formato. <strong>Faxina concentrada cansa e não dura</strong>, porque a casa volta a bagunçar já na segunda-feira, e o ciclo de exaustão recomeça na semana seguinte.</p>
+  <p class="body-text">A alternativa é trocar "um dia grande" por <strong>três blocos pequenos, todos os dias</strong>. Nenhum deles exige mais que 5 minutos, e juntos evitam que a bagunça se acumule a ponto de virar um projeto de fim de semana.</p>
+
+  <div class="divider"></div>
+
+  <div class="section-label">O sistema</div>
+  <div class="section-title">A regra dos 15 minutos</div>
+
+  <div class="rule-card">
+    <h3>3 blocos, 5 minutos cada</h3>
+    <p class="rule-sub">Encaixe nos momentos que já existem na sua rotina — não crie um horário novo.</p>
+
+    <div class="slot">
+      <div class="slot-time"><div class="min">05</div><div class="label">manhã</div></div>
+      <div class="slot-body">
+        <h4>Cama arrumada + pia livre</h4>
+        <p>Antes de sair de casa. Define o tom do dia: se esses dois pontos estão resolvidos, a casa já não parece bagunçada.</p>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time"><div class="min">05</div><div class="label">tarde</div></div>
+      <div class="slot-body">
+        <h4>Roupa no lugar + lixo fora</h4>
+        <p>Um giro rápido recolhendo o que se acumulou durante o dia, antes que vire uma pilha maior.</p>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time"><div class="min">05</div><div class="label">noite</div></div>
+      <div class="slot-body">
+        <h4>Sala resetada para amanhã</h4>
+        <p>Almofadas no lugar, mesa limpa, luzes ajustadas. Você acorda numa casa pronta, não numa bagunça de ontem.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="body-text">Repare que nenhum desses blocos é "limpeza profunda" — é <strong>manutenção</strong>. A limpeza pesada (banheiro, chão, vidros) continua existindo, só que espalhada e leve, porque a casa nunca chega a sair do controle entre uma e outra.</p>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Onde as pessoas travam</div>
+  <div class="section-title">3 armadilhas comuns</div>
+
+  <div class="pitfalls">
+    <div class="pitfall"><div class="x">✕</div><p><b>Tentar fazer tudo de uma vez</b> — isso é faxina, não manutenção. Os blocos funcionam justamente por serem pequenos e específicos.</p></div>
+    <div class="pitfall"><div class="x">✕</div><p><b>Pular um dia "porque amanhã eu faço dois"</b> — a rotina só funciona em ritmo constante; dois blocos juntos já viram faxina de novo.</p></div>
+    <div class="pitfall"><div class="x">✕</div><p><b>Copiar a rotina de outra pessoa</b> — uma casa com crianças pequenas e uma casa de duas pessoas que trabalham fora têm ritmos diferentes. O horário dos blocos precisa caber na sua realidade.</p></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Complementando os blocos diários</div>
+  <div class="section-title">Uma tarefa por dia da semana</div>
+  <p class="body-text">Além dos 3 blocos diários, distribuir a limpeza pesada ao longo da semana evita que qualquer dia único vire pesado demais:</p>
+
+  <div class="week-table">
+    <div class="week-row"><div class="week-day">Segunda</div><div class="week-task">Banheiros</div></div>
+    <div class="week-row"><div class="week-day">Terça</div><div class="week-task">Cozinha a fundo</div></div>
+    <div class="week-row"><div class="week-day">Quarta</div><div class="week-task">Chãos e tapetes</div></div>
+    <div class="week-row"><div class="week-day">Quinta</div><div class="week-task">Roupa de cama</div></div>
+    <div class="week-row"><div class="week-day">Sexta</div><div class="week-task">Vidros e espelhos</div></div>
+    <div class="week-row"><div class="week-day">Fim de semana</div><div class="week-task">Livre — sem tarefa fixa</div></div>
+  </div>
+
+  <p class="body-text">Essa é a lógica geral por trás do <strong>Método Rainha da Casa</strong>. Mas cada casa tem um ritmo diferente — número de pessoas, se trabalha fora, se tem filhos pequenos, tamanho do imóvel. Por isso o método começa com um formulário rápido que entende a sua realidade antes de te mostrar o plano.</p>
+
+  <div class="quote">
+    <p>"Finalmente uma rotina que cabe na vida real. Minha cozinha ficou pronta em 15 min e não voltou a bagunçar."</p>
+    <span>— Ana M., leitora Casa Leve</span>
+  </div>
+
+  <div class="cta-block">
+    <h3>Veja seu plano personalizado</h3>
+    <p>Responda o formulário rápido e descubra como aplicar essa lógica na sua rotina específica.</p>
+    <a class="btn" id="hero-cta" href="https://kiwify.app/mtnhgqL?afid=iUasA422" target="_blank">Quero responder rápido e ver meu plano →<small>menos de 1 minuto • acesso imediato</small></a>
+  </div>
+
+  <div class="footer">Casa Leve © 2026 — Organização real para vida real.</div>
+</div>
+
+<div class="sticky" id="sticky-cta">
+  <div class="sticky-inner">
+    <a class="btn" href="https://kiwify.app/mtnhgqL?afid=iUasA422" target="_blank">Responder formulário agora →<small>menos de 1 minuto</small></a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var heroCta = document.getElementById('hero-cta');
+  var sticky = document.getElementById('sticky-cta');
+  if(!heroCta || !sticky) return;
+  var mq = window.matchMedia('(max-width:600px)');
+
+  var observer = new IntersectionObserver(function(entries){
+    if(!mq.matches) return;
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        sticky.classList.remove('is-visible');
+      } else if(entry.boundingClientRect.top < 0){
+        sticky.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0 });
+
+  observer.observe(heroCta);
+
+  mq.addEventListener('change', function(){
+    if(!mq.matches){ sticky.classList.remove('is-visible'); }
+  });
+})();
+</script>
+</body>
+</html>
