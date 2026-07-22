@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,7 +7,7 @@
 <style>
 :root{--bg:#F5F1EB;--white:#FFFFFF;--black:#1A1A1A;--sage:#A8B5A2;--sage-dark:#8A9A84;--border:#E9E2D6}
 *{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--black);font-family:'Inter',sans-serif}
-.container{max-width:480px;margin:0 auto;padding:28px 20px 120px}
+.container{max-width:480px;margin:0 auto;padding:28px 20px 40px}
 .header{text-align:center;margin-bottom:28px}
 .logo-img{width:180px;height:auto;margin:0 auto 14px;display:block}
 .header p{font-size:14px;opacity:0.7;margin-top:2px;line-height:1.4}
@@ -23,7 +22,28 @@
 .badge-free{background:var(--black);color:white;font-size:10px;padding:3px 8px;border-radius:100px;font-weight:700;margin-left:6px}
 .quote{background:var(--sage);border-radius:20px;padding:20px 22px;margin-top:24px;color:#2A3328}.quote p{font-family:'Playfair Display';font-size:16px;font-style:italic}.quote span{display:block;margin-top:8px;font-size:12px;font-weight:600}
 .footer{text-align:center;margin-top:36px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;opacity:0.5}
-.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(245,241,235,0.92);backdrop-filter:blur(12px);padding:14px 20px;border-top:1px solid var(--border)}.sticky-inner{max-width:480px;margin:0 auto}
+
+/* Sticky CTA: hidden on desktop entirely, and hidden/animated on mobile until the hero CTA scrolls out of view */
+.sticky{display:none}
+@media (max-width:600px){
+  .container{padding-bottom:110px}
+  .sticky{
+    display:block;
+    position:fixed;bottom:0;left:0;right:0;
+    background:rgba(245,241,235,0.92);backdrop-filter:blur(12px);
+    padding:14px 20px;border-top:1px solid var(--border);
+    transform:translateY(120%);
+    opacity:0;
+    pointer-events:none;
+    transition:transform 0.35s ease, opacity 0.35s ease;
+  }
+  .sticky.is-visible{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+}
+.sticky-inner{max-width:480px;margin:0 auto}
 </style>
 </head>
 <body>
@@ -36,7 +56,7 @@
     <img class="hero-cover" src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?q=80&w=800&auto=format&fit=crop" alt="Sala organizada clara">
     <h2>Responda rápido e veja como ter <span>uma casa leve sem neura</span></h2>
     <p class="sub">Leva menos de um minuto para entender sua rotina e te mostrar o passo a passo do Método Rainha da Casa aplicado à sua realidade.</p>
-    <a class="btn" href="https://pay.kiwify.com.br/SEU-LINK-AQUI?afid=iUasA422" target="_blank"><div>Quero ver meu plano →<small>resposta rápida • acesso imediato</small></div></a>
+    <a class="btn" id="hero-cta" href="https://kiwify.app/mtnhgqL?afid=iUasA422" target="_blank"><div>Quero ver meu plano →<small>resposta rápida • acesso imediato</small></div></a>
     <div class="btn-sub">✨ Formulário rápido e personalizado</div>
   </div>
   <div class="section-title">Comece por aqui</div>
@@ -49,7 +69,7 @@
       <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=200&auto=format&fit=crop" alt="">
       <div><h3>7 Hábitos de Casa Cheirosa</h3><p>Os detalhes que deixam sua casa com cheiro de hotel.</p></div>
     </a>
-    <a class="card" href="https://pay.kiwify.com.br/SEU-LINK-AQUI?afid=iUasA422" target="_blank" style="border:1.5px dashed var(--sage-dark)">
+    <a class="card" href="https://kiwify.app/mtnhgqL?afid=iUasA422" target="_blank" style="border:1.5px dashed var(--sage-dark)">
       <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?q=80&w=200&auto=format&fit=crop" alt="">
       <div><h3>Planner Semanal Grátis <span class="badge-free">GRÁTIS</span></h3><p>Baixe e organize sua semana em uma folha. Presente meu.</p></div>
     </a>
@@ -57,6 +77,38 @@
   <div class="quote"><p>"Finalmente uma rotina que cabe na vida real. Minha cozinha ficou pronta em 15 min e não voltou a bagunçar."</p><span>— Ana M., leitora Casa Leve</span></div>
   <div class="footer">Casa Leve © 2026 — Organização real para vida real.</div>
 </div>
-<div class="sticky"><div class="sticky-inner"><a class="btn" href="https://pay.kiwify.com.br/SEU-LINK-AQUI?afid=iUasA422" target="_blank"><div>Responder formulário agora →<small>menos de 1 minuto</small></div></a></div></div>
+<div class="sticky" id="sticky-cta"><div class="sticky-inner"><a class="btn" href="https://kiwify.app/mtnhgqL?afid=iUasA422" target="_blank"><div>Responder formulário agora →<small>menos de 1 minuto</small></div></a></div></div>
+
+<script>
+(function(){
+  var heroCta = document.getElementById('hero-cta');
+  var sticky = document.getElementById('sticky-cta');
+  if(!heroCta || !sticky) return;
+
+  // Only run the show/hide logic where the sticky bar is actually rendered (mobile).
+  var mq = window.matchMedia('(max-width:600px)');
+
+  var observer = new IntersectionObserver(function(entries){
+    if(!mq.matches) return;
+    entries.forEach(function(entry){
+      // Hero button scrolled above the viewport -> show sticky.
+      // Hero button back in view (scrolling up) -> hide sticky again.
+      if(entry.isIntersecting){
+        sticky.classList.remove('is-visible');
+      } else if(entry.boundingClientRect.top < 0){
+        sticky.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0 });
+
+  observer.observe(heroCta);
+
+  mq.addEventListener('change', function(){
+    if(!mq.matches){
+      sticky.classList.remove('is-visible');
+    }
+  });
+})();
+</script>
 </body>
 </html>
